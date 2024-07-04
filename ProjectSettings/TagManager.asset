@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Path_Inner
   - Path_Outer
+  - King
+  - Soldier
   layers:
   - Default
   - TransparentFX

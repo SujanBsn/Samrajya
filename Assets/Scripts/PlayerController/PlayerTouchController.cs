@@ -3,6 +3,7 @@ using UnityEngine;
 public class PlayerTouchController : MonoBehaviour
 {
     public float sensitivity;
+
     public GameObject pathInner;
 
     private float minPathX;
