@@ -14,7 +14,7 @@ public class FpsDisplay : MonoBehaviour
     private void Start()
     {
         pollingTime = 1f;
-        targetFrameRate = 0;
+        targetFrameRate = 60;
     }
 
 
