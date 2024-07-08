@@ -17,14 +17,18 @@ public class SpawnSoldier : MonoBehaviour
 
     [Header("Positioning")]
     public float soldierSpacing = 1.5f; // Space between soldiers
-    public float[] columnOffsets = new float[] { 0f, -.25f, .25f, -.5f, .5f };// Offsets for the columns
+    public float[] columnOffsets;// Offsets for the columns
 
-    private List<GameObject> soldiers = new List<GameObject>();
+
+
+    readonly private List<GameObject> soldiers = new();
     
 
     void Start()
     {
-        InvokeRepeating(nameof(SpawnTroop), 5, 3);
+        playerStatus.soldierCount = 0;
+        playerStatus.maxSoldierCount = 12;
+        InvokeRepeating(nameof(SpawnTroop), 3f, 3f);
     }
 
     /// <summary>
@@ -32,19 +36,22 @@ public class SpawnSoldier : MonoBehaviour
     /// </summary>
     void SpawnTroop()
     {
-        playerStatus.soldierCount++;
-        soldierCountText.text = playerStatus.soldierCount.ToString();
+        if (playerStatus.soldierCount < playerStatus.maxSoldierCount)
+        {
+            playerStatus.soldierCount++;
+            soldierCountText.text = playerStatus.soldierCount.ToString();
 
-        // Calculate the index for the next soldier
-        int soldierIndex = soldiers.Count % columnOffsets.Length;
-        float offset = columnOffsets[soldierIndex];
+            // Calculate the index for the next soldier
+            int soldierIndex = soldiers.Count % columnOffsets.Length;
+            float offset = columnOffsets[soldierIndex];
 
-        // Calculate the spawn position for the new soldier
-        Vector3 kingPosition = kingPrefab.transform.position;
-        Vector3 spawnPosition = kingPosition - ((soldiers.Count / columnOffsets.Length) + 1) * soldierSpacing * kingPrefab.transform.forward + kingPrefab.transform.right * offset * soldierSpacing;
+            // Calculate the spawn position for the new soldier
+            Vector3 kingPosition = kingPrefab.transform.position;
+            Vector3 spawnPosition = kingPosition - ((soldiers.Count / columnOffsets.Length) + 1) * soldierSpacing * kingPrefab.transform.forward + offset * soldierSpacing * kingPrefab.transform.right;
 
-        GameObject newSoldier = Instantiate(soldierPrefab, spawnPosition, Quaternion.identity);
-        newSoldier.transform.parent = soldierVesselPrefab.transform;
-        soldiers.Add(newSoldier);
+            GameObject newSoldier = Instantiate(soldierPrefab, spawnPosition, Quaternion.identity);
+            newSoldier.transform.parent = soldierVesselPrefab.transform;
+            soldiers.Add(newSoldier);
+        }
     }
 }

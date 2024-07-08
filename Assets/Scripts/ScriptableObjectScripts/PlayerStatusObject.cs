@@ -4,4 +4,5 @@ using UnityEngine;
 public class PlayerStatusObject : ScriptableObject
 {
     public int soldierCount;
+    public int maxSoldierCount;
 }

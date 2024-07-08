@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 1776247469757005505}
   - component: {fileID: 8171012217954350886}
   - component: {fileID: 2989224573314483057}
-  - component: {fileID: 3880938770500320805}
-  - component: {fileID: 2118191600758542367}
+  - component: {fileID: -6040787503926206887}
+  - component: {fileID: 4696676770147826710}
+  - component: {fileID: -5314645151023396062}
   m_Layer: 0
   m_Name: Soldier
   m_TagString: Soldier
@@ -31,7 +32,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.61, y: 1.6076, z: 0}
   m_LocalScale: {x: 0.25, y: 0.7426, z: 0.25}
-  m_ConstrainProportionsScale: 1
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -85,14 +86,14 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &3880938770500320805
+--- !u!65 &-6040787503926206887
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8639410451502379176}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 3e56bf4174cb19c44b3b2e1fe6ed7c17, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -106,7 +107,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &2118191600758542367
+--- !u!54 &4696676770147826710
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -114,7 +115,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8639410451502379176}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 20
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -131,5 +132,27 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 64
+  m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!195 &-5314645151023396062
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8639410451502379176}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 5.2
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 360
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 0
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 1
+  m_BaseOffset: 0.5
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
