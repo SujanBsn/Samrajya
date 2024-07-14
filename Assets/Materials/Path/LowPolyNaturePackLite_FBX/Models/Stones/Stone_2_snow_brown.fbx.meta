@@ -3,7 +3,12 @@ guid: 002bea6fde6536f48ac07656c2c56b3a
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Nature_Pack_Palette
+    second: {fileID: 2100000, guid: 05395e6e7748dd241b7f806bf9beaeec, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

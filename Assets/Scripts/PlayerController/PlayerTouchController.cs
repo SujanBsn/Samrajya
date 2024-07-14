@@ -2,17 +2,22 @@ using UnityEngine;
 
 public class PlayerTouchController : MonoBehaviour
 {
-    public float sensitivity;
+    [Header("Smoothness Parameters")]
+    public float sensitivity;  // Increased sensitivity for responsiveness
+    public float smoothTime;  // Reduced smooth time for quicker response
 
+    [Header("Target Path")]
     public GameObject pathInner;
 
     private float minPathX;
     private float maxPathX;
+    private Vector3 velocity = Vector3.zero;
+    private Vector3 targetPosition;
 
     private void Start()
     {
-        sensitivity = 20f;
         SetPathBounds();
+        targetPosition = transform.position;
     }
 
     private void Update()
@@ -28,18 +33,25 @@ public class PlayerTouchController : MonoBehaviour
         if (Input.touchCount == 0) return;
 
         Touch touch = Input.GetTouch(0);
-        if (touch.phase != TouchPhase.Moved) return;
 
-        Vector3 currentPos = transform.position;
-        float moveDelta = touch.deltaPosition.x / Screen.width * sensitivity;
+        if (touch.phase == TouchPhase.Began)
+        {
+            targetPosition = transform.position;
+        }
+        else if (touch.phase == TouchPhase.Moved)
+        {
+            float moveDelta = touch.deltaPosition.x / Screen.width * sensitivity;
 
-        Vector3 newPos = new(
-            Mathf.Clamp(currentPos.x + moveDelta, minPathX, maxPathX),
-            currentPos.y,
-            currentPos.z
-        );
+            targetPosition = new Vector3(
+                Mathf.Clamp(targetPosition.x + moveDelta, minPathX, maxPathX),
+                transform.position.y,
+                transform.position.z  // Ensure z position remains constant
+            );
+        }
 
-        transform.position = Vector3.Lerp(transform.position, newPos, Time.deltaTime * sensitivity);
+        // Smoothly move the player towards the target position
+        targetPosition.z = transform.position.z;  // Explicitly maintain the z position
+        transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime);
     }
 
     /// <summary>
