@@ -1,8 +1,9 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 
 [System.Serializable]
-public class CustomResponse : UnityEvent<Component, object> { }
+public class CustomResponse : UnityEvent<Component, object, string> { }
 
 public class GameEventListener : MonoBehaviour
 {
@@ -18,8 +19,8 @@ public class GameEventListener : MonoBehaviour
     {
         gameEvent.UnregisterListeners(this);
     }
-    public void OnEventRaised(Component sender, object data)
+    public void OnEventRaised(Component sender, object data, string tag)
     {
-        response.Invoke(sender, data);
+        response.Invoke(sender, data, tag);
     }
 }

@@ -4,6 +4,9 @@ using System.Collections;
 
 public class SoldierSpawnController : MonoBehaviour
 {
+    [Header("Scriptable Objects")]
+    public EventTagObject eventTags;
+
     [Header("UI")]
     public SoldierPositionObject soldierPosition;
 
@@ -16,6 +19,7 @@ public class SoldierSpawnController : MonoBehaviour
 
     [Header("Events")]
     public GameEvent soldierSpawnEvent;
+    public GameEvent soldierDespawnEvent;
 
     float soldierSpacing;// Space between soldiers
     float[] columnOffsets;// Offsets for the columns
@@ -43,15 +47,18 @@ public class SoldierSpawnController : MonoBehaviour
         StartCoroutine(DespawnTroops(despawnCount, despawnTime, initialDelay));
     }
 
-    public void DespawnSoldiers_E(Component sender, object data)
+    public void DespawnSoldiers(Component sender, object data, string tag)
     {
-        float[] receivedData = data as float[];
+        if (tag == eventTags.soldierDespawnTag)
+        {
+            float[] receivedData = data as float[];
 
-        int despawnCount = (int)receivedData[0];
-        float despawnTime = receivedData[1];
-        float initialDelay = receivedData[2];
+            int despawnCount = (int)receivedData[0];
+            float despawnTime = receivedData[1];
+            float initialDelay = receivedData[2];
 
-        StartCoroutine(DespawnTroops(despawnCount, despawnTime, initialDelay));
+            StartCoroutine(DespawnTroops(despawnCount, despawnTime, initialDelay));
+        }
     }
 
     IEnumerator SpawnTroops(int spawnCount, float spawnTime, float initialSpawnDelay)
@@ -65,7 +72,7 @@ public class SoldierSpawnController : MonoBehaviour
             columnOffsets = soldierPosition.columnOffsets;
 
             soldierPosition.soldierCount++;
-            soldierSpawnEvent.Raise(this, soldierPosition.soldierCount);
+            soldierSpawnEvent.Raise(this, soldierPosition.soldierCount, eventTags.soldierCountTag);
 
             // Calculate the index for the next soldier
             int soldierIndex = soldiers.Count % columnOffsets.Length;
@@ -78,7 +85,7 @@ public class SoldierSpawnController : MonoBehaviour
             GameObject newSoldier = Instantiate(soldierPrefab, spawnPosition, Quaternion.identity);
             newSoldier.transform.parent = soldierVesselPrefab.transform;
             soldiers.Add(newSoldier);
-
+            soldierSpawnEvent.Raise(this, newSoldier.transform, eventTags.soldierSpawnParticleTag);
             spawnedSoldiers++;
         }
     }
@@ -96,11 +103,12 @@ public class SoldierSpawnController : MonoBehaviour
                 break;
 
             soldierPosition.soldierCount--;
-            soldierSpawnEvent.Raise(this, soldierPosition.soldierCount);
+            soldierSpawnEvent.Raise(this, soldierPosition.soldierCount, eventTags.soldierCountTag);
 
             GameObject lastSoldier = soldiers[^1];
             soldiers.RemoveAt(soldiers.Count - 1);
             lastSoldier.SetActive(false);
+            soldierDespawnEvent.Raise(null, lastSoldier.transform, eventTags.soldierDespawnParticleTag);
             GameObject.Destroy(lastSoldier);
 
             despawnedSoldiers++;

@@ -4,10 +4,11 @@ using UnityEngine;
 public class SoldierCountDisplay : MonoBehaviour
 {
     public TextMeshPro soldierCountText;
+    public EventTagObject eventTags;
 
-    public void UpdateSoldierCount(Component sender, object data)
+    public void UpdateSoldierCount(Component sender, object data, string tag)
     {
-        if (sender != null)
+        if (tag == eventTags.soldierCountTag)
             soldierCountText.text = data.ToString();
     }
 }
