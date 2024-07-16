@@ -20,7 +20,6 @@ public class SoldierPositionController : MonoBehaviour
         {
             Vector3 targetPosition = CalculateTargetPosition(soldierIndex);
             SetSoldierSpeed(child, targetPosition);
-            ApplyGravity(child);
 
             soldierIndex++;
         }
@@ -66,21 +65,5 @@ public class SoldierPositionController : MonoBehaviour
 
         float distance = Vector3.Distance(soldier.position, targetPosition);
         agent.speed = Mathf.Min(maxSpeed, distance * distanceFactor);
-    }
-
-    /// <summary>
-    /// Applies gravity to a soldier by adjusting its vertical position based on the ground below it.
-    /// </summary>
-    /// <param name="soldier">The soldier transform.</param>
-    private void ApplyGravity(Transform soldier)
-    {
-        Ray ray = new(soldier.position + Vector3.up, Vector3.down);
-        if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, groundLayer))
-        {
-            // Adjust the position based on the hit point and the height of the soldier's collider
-            Vector3 position = soldier.position;
-            position.y = hit.point.y + (soldier.GetComponent<Collider>().bounds.extents.y);
-            soldier.position = position;
-        }
     }
 }
