@@ -267,11 +267,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eventTags: {fileID: 11400000, guid: d7f3944f12ea7414f9b5e7f5ab65d568, type: 2}
-  obstacleCollisionParticle: {fileID: 2427786012956944610, guid: a1e0785c373385449b767068149a9720,
+  obstacleCollisionParticle: {fileID: 2150967500386247403, guid: 5e9fe44c074076446b26c6dbfe806a57,
     type: 3}
-  soldierDespawnParticle: {fileID: 2060212803351811498, guid: 3e82cb8ce8c05d44bb20f8df81679497,
+  soldierDespawnParticle: {fileID: 100002, guid: 403fae380ea286641876cb170d0784d7,
     type: 3}
-  soldierSpawnParticle: {fileID: 2060212803351811498, guid: 68d9378fce4cc0e4e8c52cfd7ec6bcb1,
+  soldierSpawnParticle: {fileID: 6511384514936467557, guid: eb39b23c4ef89cf418569e9d746370e9,
     type: 3}
   kingPosition: {fileID: 1686213470262931695}
 --- !u!114 &705349333

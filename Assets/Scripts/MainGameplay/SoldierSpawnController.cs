@@ -108,6 +108,7 @@ public class SoldierSpawnController : MonoBehaviour
             GameObject lastSoldier = soldiers[^1];
             soldiers.RemoveAt(soldiers.Count - 1);
             lastSoldier.SetActive(false);
+
             soldierDespawnEvent.Raise(null, lastSoldier.transform, eventTags.soldierDespawnParticleTag);
             GameObject.Destroy(lastSoldier);
 

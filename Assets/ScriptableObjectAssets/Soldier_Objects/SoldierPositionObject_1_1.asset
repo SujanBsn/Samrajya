@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: SoldierPositionObject_1_1
   m_EditorClassIdentifier: 
   soldierCount: 0
-  maxPassiveGenerationCount: 25
+  maxPassiveGenerationCount: 10
   maxSoldierCount: 100
   soldierSpawnSpeed: 2.5
-  soldierInitialSpawnDelay: 5
+  soldierInitialSpawnDelay: 1
   soldierSpacing: 1.5
   columnOffsets:
   - 0

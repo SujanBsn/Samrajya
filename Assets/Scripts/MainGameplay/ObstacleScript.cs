@@ -17,5 +17,6 @@ public class ObstacleScript : MonoBehaviour
     {
         float[] penaltyValue = { obstacleType.despawnCount, obstacleType.despawnTime, obstacleType.initialDelay };
         obstacleCollision.Raise(this, penaltyValue, eventTags.soldierDespawnTag);
+        obstacleCollision.Raise(this, transform, eventTags.collisionParticleTag);
     }
 }
