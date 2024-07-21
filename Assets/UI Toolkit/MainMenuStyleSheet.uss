@@ -1,0 +1,34 @@
+.header {
+    color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.button {
+    -unity-font: url("project://database/Assets/UI/Fonts/ChelaOne-Regular.ttf?fileID=12800000&guid=8c2226f5768e49f4ca5f58858a57cb7a&type=3#ChelaOne-Regular");
+    font-size: 60px;
+    -unity-font-style: normal;
+    -unity-font-definition: initial;
+    width: 50%;
+    align-self: center;
+    margin-top: 5%;
+    margin-right: 5%;
+    margin-bottom: 5%;
+    margin-left: 5%;
+    padding-top: 5%;
+    padding-right: 5%;
+    padding-bottom: 5%;
+    padding-left: 5%;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    border-bottom-right-radius: 40px;
+    border-bottom-left-radius: 40px;
+    transition-duration: 0.25s;
+    transition-timing-function: ease-in-out;
+    color: rgb(18, 18, 18);
+}
+
+.button:hover {
+    scale: 1.1 1.1;
+    color: rgb(255, 10, 0);
+    -unity-background-image-tint-color: rgb(196, 196, 196);
+}

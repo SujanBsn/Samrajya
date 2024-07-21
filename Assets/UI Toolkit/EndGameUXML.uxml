@@ -1,0 +1,8 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/EndGameStyleSheet.uss?fileID=7433441132597879392&amp;guid=d65682ff34971b842bb6fe7461e410d5&amp;type=3#EndGameStyleSheet" />
+    <ui:VisualElement style="flex-grow: 1; background-color: rgb(255, 255, 255);">
+        <ui:Label tabindex="-1" text="&#10;Game Over !&#10;" parse-escape-sequences="true" display-tooltip-when-elided="true" class="header" style="-unity-text-align: middle-center; white-space: nowrap; -unity-font-definition: url(&quot;project://database/Assets/UI/Fonts/ChelaOne-Regular%20SDF%201.asset?fileID=11400000&amp;guid=4e008579d9e985040974fa631b2f2b80&amp;type=2#ChelaOne-Regular SDF 1&quot;); -unity-font-style: bold; font-size: 120px;" />
+        <ui:Button text="Play Again XD" parse-escape-sequences="true" display-tooltip-when-elided="true" name="PlayAgainButton" class="button" />
+        <ui:Button text="Exit" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ExitButton" class="button" />
+    </ui:VisualElement>
+</ui:UXML>
