@@ -1,6 +1,13 @@
 .header {
-    color: rgb(0, 0, 0);
-    background-color: rgba(0, 0, 0, 0);
+    font-size: 200px;
+    -unity-text-align: upper-center;
+    -unity-font-style: normal;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/ChelaOne-Regular%20SDF%201.asset?fileID=11400000&guid=4e008579d9e985040974fa631b2f2b80&type=2#ChelaOne-Regular SDF 1");
+    margin-top: 100px;
+    margin-right: 100px;
+    margin-bottom: 100px;
+    margin-left: 100px;
+    height: 20%;
 }
 
 .button {
@@ -25,10 +32,17 @@
     transition-duration: 0.25s;
     transition-timing-function: ease-in-out;
     color: rgb(18, 18, 18);
+    background-image: url("project://database/Assets/Materials/Buttons/button.png?fileID=2800000&guid=c219740987367c842a48b655390c5270&type=3#button");
 }
 
 .button:hover {
     scale: 1.1 1.1;
     color: rgb(255, 10, 0);
     -unity-background-image-tint-color: rgb(196, 196, 196);
+}
+
+.header--hover {
+    transition-duration: 2s;
+    transition-timing-function: ease-in-out-cubic;
+    translate: 0 25px;
 }

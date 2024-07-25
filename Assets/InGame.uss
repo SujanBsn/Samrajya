@@ -1,0 +1,9 @@
+.button {
+    width: 125px;
+    height: 125px;
+    align-self: flex-end;
+}
+
+.button:hover {
+    -unity-background-image-tint-color: rgba(255, 255, 255, 0);
+}

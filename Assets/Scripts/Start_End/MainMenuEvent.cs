@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEditor.VersionControl;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
@@ -10,6 +12,7 @@ public class MainMenuEvent : MonoBehaviour
     private UIDocument document; //referencing to the document 
     private Button StartButton;
     private Button ExitButton;
+    private VisualElement SamRajya;
     private void Awake()
     {
         document = GetComponent<UIDocument>();
@@ -18,6 +21,14 @@ public class MainMenuEvent : MonoBehaviour
         ExitButton = document.rootVisualElement.Q("ExitButton") as Button;
         ExitButton.RegisterCallback<ClickEvent>(QuitGame);
 
+        SamRajya = document.rootVisualElement.Q("SamRajya") as VisualElement;
+       
+
+    }
+
+    private void Start()
+    {
+        Invoke("Hover", 0.45f);
     }
     private void OnDisable()
     {
@@ -37,5 +48,21 @@ public class MainMenuEvent : MonoBehaviour
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #endif
+    }
+
+
+    private void Hover()
+    {
+        //Add or remove ".header--hover" in the SamRajya's class list
+        SamRajya.ToggleInClassList("header--hover");
+
+        Debug.Log("Hover started");
+
+        //Add or remove ".header--hover" in the SamRajya's class list
+        //when the transition ends
+        SamRajya.RegisterCallback<TransitionEndEvent>
+        (
+            evt => SamRajya.ToggleInClassList("header--hover")
+        );
     }
 }
