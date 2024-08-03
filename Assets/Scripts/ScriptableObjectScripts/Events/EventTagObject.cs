@@ -8,6 +8,8 @@ public class EventTagObject : ScriptableObject
 
     public string soldierCountTag = "soldierCountTag";
 
+    public string coinPickupTag = "coinPickupTag";
+
     [Header("Particle Effect Tags")]
     public string collisionParticleTag = "collisionParticleTag";
     public string soldierSpawnParticleTag = "soldierSpawnParticleTag";

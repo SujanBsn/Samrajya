@@ -9,6 +9,7 @@ public class ParticleManager : MonoBehaviour
     public GameObject obstacleCollisionParticle;
     public GameObject soldierDespawnParticle;
     public GameObject soldierSpawnParticle;
+    public GameObject coinPickUpParticle;
 
     [Header("Transforms")]
     public Transform kingPosition;
@@ -33,6 +34,17 @@ public class ParticleManager : MonoBehaviour
     {
         if (tag == eventTags.soldierSpawnParticleTag)
             GameObject.Instantiate(soldierSpawnParticle, data as Transform);
+    }
+
+    public void InstantiateCoinPickUpParticles(Component sender, object data, string tag)
+    {
+        if (tag == eventTags.coinPickupTag)
+        {
+            GameObject coinParticle = GameObject.Instantiate(coinPickUpParticle);
+            Transform coinTransfrom = sender.transform;
+            coinParticle.transform.position = coinTransfrom.position;
+        }
+
     }
 
 }
