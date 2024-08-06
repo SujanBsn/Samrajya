@@ -12,7 +12,7 @@ public class CoinsDisplay : MonoBehaviour
         coinCount.text = "0";
     }
 
-    public void UpdateCoinCount(Component sender, object data, string tag)
+    public void UpdateCoinCount(Component sender, object data, EventTags tag)
     {
         coinObject.currentCoin += (int)data;
         coinCount.text = coinObject.currentCoin.ToString();

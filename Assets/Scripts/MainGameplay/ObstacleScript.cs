@@ -2,20 +2,22 @@ using UnityEngine;
 
 public class ObstacleScript : MonoBehaviour
 {
-    public EventTagObject eventTags;
     public ObstacleObject obstacleType;
     public GameEvent obstacleCollision;
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision other)
     {
-        gameObject.GetComponent<Collider>().enabled = false;
-        OnCollisionResponse();
+        if (other.gameObject.CompareTag("King"))
+        {
+            gameObject.GetComponent<Collider>().enabled = false;
+            OnCollisionResponse();
+        }
     }
 
     void OnCollisionResponse()
     {
         float[] penaltyValue = { obstacleType.despawnCount, obstacleType.despawnTime, obstacleType.initialDelay };
-        obstacleCollision.Raise(this, penaltyValue, eventTags.soldierDespawnTag);
-        obstacleCollision.Raise(this, transform, eventTags.collisionParticleTag);
+        obstacleCollision.Raise(this, penaltyValue, EventTags.soldierDespawnTag);
+        obstacleCollision.Raise(this, transform, obstacleType.obstacleTag);
     }
 }

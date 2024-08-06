@@ -6,7 +6,7 @@ public class GameEvent : ScriptableObject
 {
     public List<GameEventListener> listeners = new();
 
-    public void Raise(Component sender, object data, string tag)
+    public void Raise(Component sender, object data, EventTags tag)
     {
         foreach (GameEventListener listener in listeners)
         {

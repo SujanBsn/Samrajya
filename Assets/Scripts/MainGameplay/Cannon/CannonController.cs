@@ -2,9 +2,11 @@ using MoreMountains.Feedbacks;
 using System.Collections;
 using UnityEngine;
 
-
+[RequireComponent(typeof(MMF_Player))]
 public class CannonController : MonoBehaviour
 {
+    public GameEvent cannonFireEvent;
+
     public MMF_Player lookAtFeedBack;
 
     public GameObject turret;
@@ -21,11 +23,6 @@ public class CannonController : MonoBehaviour
         StartCoroutine(ShootCannon());
     }
 
-    //private void OnTriggerExit(Collider other)
-    //{
-    //    lookAtFeedBack.StopFeedbacks();
-    //}
-
     IEnumerator ShootCannon()
     {
         yield return new WaitForSeconds(3f);
@@ -33,6 +30,7 @@ public class CannonController : MonoBehaviour
         _cannonBall.transform.position = firePos.transform.position;
         _cannonBall.GetComponent<Rigidbody>().velocity = (target.transform.position - firePos.transform.position) * firePower;
 
+        cannonFireEvent.Raise(this, _cannonBall.transform, EventTags.cannonBallFire);
         lookAtFeedBack.StopFeedbacks();
         lookAtFeedBack.enabled = false;
     }

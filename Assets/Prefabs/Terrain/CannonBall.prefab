@@ -13,6 +13,9 @@ GameObject:
   - component: {fileID: 1162738602843007162}
   - component: {fileID: 5133551863525754540}
   - component: {fileID: 1355527310261116634}
+  - component: {fileID: 729415030999289012}
+  - component: {fileID: 5461306653648550300}
+  - component: {fileID: -4203759047293754173}
   m_Layer: 0
   m_Name: CannonBall
   m_TagString: Untagged
@@ -128,8 +131,47 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!75 &729415030999289012
+ConstantForce:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8476625673973522875}
+  m_Enabled: 1
+  m_Force: {x: 0, y: -2.5, z: 0}
+  m_RelativeForce: {x: 0, y: 0, z: 0}
+  m_Torque: {x: 0, y: 0, z: 0}
+  m_RelativeTorque: {x: 0, y: 0, z: 0}
+--- !u!114 &5461306653648550300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8476625673973522875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54a5857349fbba84293ff63624601647, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obstacleType: {fileID: 11400000, guid: bd5484e4637761c40b478da693d03c36, type: 2}
+  obstacleCollision: {fileID: 11400000, guid: 62a0345c7f985a84dad50b44774846ee, type: 2}
+--- !u!114 &-4203759047293754173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8476625673973522875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efbc540e8dc1056408e1642924842216, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetTag: King

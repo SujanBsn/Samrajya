@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Events;
 
 [System.Serializable]
-public class CustomResponse : UnityEvent<Component, object, string> { }
+public class CustomResponse : UnityEvent<Component, object, EventTags> { }
 
 public class GameEventListener : MonoBehaviour
 {
@@ -19,7 +19,7 @@ public class GameEventListener : MonoBehaviour
     {
         gameEvent.UnregisterListeners(this);
     }
-    public void OnEventRaised(Component sender, object data, string tag)
+    public void OnEventRaised(Component sender, object data, EventTags tag)
     {
         response.Invoke(sender, data, tag);
     }
