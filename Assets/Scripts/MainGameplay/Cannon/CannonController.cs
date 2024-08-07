@@ -26,6 +26,7 @@ public class CannonController : MonoBehaviour
     IEnumerator ShootCannon()
     {
         yield return new WaitForSeconds(3f);
+        Debug.Log("Fire!");
         GameObject _cannonBall = Instantiate(cannonBall);
         _cannonBall.transform.position = firePos.transform.position;
         _cannonBall.GetComponent<Rigidbody>().velocity = (target.transform.position - firePos.transform.position) * firePower;

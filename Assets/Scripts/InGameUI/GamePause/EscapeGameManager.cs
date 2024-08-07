@@ -9,7 +9,7 @@ public class EscapeGameManager : MonoBehaviour
         if (Input.GetKeyDown("escape"))
         {
             Debug.Log("Game Exited");
-            SceneManager.LoadScene("EndPage");
+            SceneManager.LoadScene("StartPage");
         }
     }
 }

@@ -15,4 +15,4 @@ MonoBehaviour:
   despawnCount: 5
   despawnTime: 0.1
   initialDelay: 0
-  obstacleTag: 5
+  obstacleTag: 6
