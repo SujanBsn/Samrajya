@@ -24,5 +24,4 @@ public class GameEvent : ScriptableObject
         if(listeners.Contains(listener))
             listeners.Remove(listener);
     }
-
 }
