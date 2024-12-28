@@ -15,8 +15,6 @@ public class CannonController : MonoBehaviour
     public GameObject cannonBall;
 
     public float firePower;
-
-
     private void OnTriggerEnter(Collider other)
     {
         lookAtFeedBack.PlayFeedbacks();
