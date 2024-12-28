@@ -3,7 +3,8 @@ using UnityEngine;
 public class SimpleFPSTarget : MonoBehaviour
 {
     [Tooltip("Set the target frame rate for the application.")]
-    [SerializeField] private int targetFPS = 60;
+    [SerializeField] 
+    private int targetFPS = 60;
 
     void Start()
     {

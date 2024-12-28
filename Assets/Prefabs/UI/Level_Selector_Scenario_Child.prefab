@@ -147,6 +147,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: 
+  levelNumber: 0
+  playerDataObject: {fileID: 11400000, guid: 2c4c3436e4d87bb4dbeaf66c9d693dcf, type: 2}
 --- !u!1 &1624792899300726189
 GameObject:
   m_ObjectHideFlags: 0

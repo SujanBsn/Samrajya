@@ -9,7 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc72c4ee06c0f0945bac89bf5e32792c, type: 3}
-  m_Name: PlayerStatusObject
+  m_Script: {fileID: 11500000, guid: 5fdd5d5a37eb1ed4ca68dec3ede0fc02, type: 3}
+  m_Name: PlayerDataObject
   m_EditorClassIdentifier: 
-  soldierCount: 0
+  playerData:
+    playerId: 
+    displayName: 
+    coins: 0
+    scenarioNumber: 0
+    levelNumber: 0
