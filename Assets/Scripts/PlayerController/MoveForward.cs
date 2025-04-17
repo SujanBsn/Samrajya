@@ -6,7 +6,8 @@ public class MoveForward : MonoBehaviour
 
     private void Start()
     {
-        speed = 5f;
+        if (speed == 0)
+            speed = 5f;
     }
 
     private void Update()
